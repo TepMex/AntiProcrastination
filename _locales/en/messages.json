@@ -1,0 +1,23 @@
+{
+    "APDescription":{
+        "message":"Allows to set time ranges,when enthertaiment sites(like facebook,twitter,youtube,etc) is available. Fights your procrastination.",
+        "description":"English description of extension"
+    },
+    "pageDisabled":{
+        "message":"PAGE DISABLED",
+        "description":"When page is disabled"
+    },
+    "pageDisabledSecond":{
+        "message":"This page is not available at this time. Try to read something else.",
+        "description":"Explanation"
+    },
+    "pageDisabledTitle":{
+        "message":"AntiProcrastination: Page Disabled",
+        "description":"Explanation"
+    },
+    "ThreeMinutesLeftAlert":{
+        "message":"AntiProcrastination: 3 minutes left!",
+        "description":"Text for alert"
+    }
+    
+}
