@@ -6,7 +6,7 @@
         <style>
             #container{
                 display:block;
-                width:640px;
+                width:800px;
                 height:480px;
                 background-color:#ffffff;
                 position: absolute;
@@ -19,17 +19,19 @@
                 font-size:12pt;
             }
             #addButton{
-                width:32px;
+                width:48px;
                 height:32px;
             }
             #saveRules{
                 width:100px;
                 height:30px;
             }
+            #maxtime{
+                width:30px;
+            }
         </style>
-        <script>
-            ruleHTMLString = '<tr class="rule"><td>Rule %rule_id%</td><td><input id="domain" type="text" placeholder="domain" /></td><td><select> <option value="enable">ENABLE</option> <option value="disable">DISABLE</option></select></td><td id="since"><select id="sinceHours"> <option value="0">0</option> <option value="1">1</option> <option value="2">2</option> <option value="3">3</option> <option value="4">4</option> <option value="5">5</option> <option value="6">6</option> <option value="7">7</option> <option value="8">8</option> <option value="9">9</option> <option value="10">10</option> <option value="11">11</option> <option value="12">12</option> <option value="13">13</option> <option value="14">14</option> <option value="15">15</option> <option value="16">16</option> <option value="17">17</option> <option value="18">18</option> <option value="19">19</option> <option value="20">20</option> <option value="21">21</option> <option value="22">22</option> <option value="23">23</option></select>:<select id="sinceMinutes"> <option value="00">00</option> <option value="10">10</option> <option value="20">20</option> <option value="30">30</option> <option value="40">40</option> <option value="50">50</option></select></td><td id="until"><select id="untilHours"> <option value="0">0</option> <option value="1">1</option> <option value="2">2</option> <option value="3">3</option> <option value="4">4</option> <option value="5">5</option> <option value="6">6</option> <option value="7">7</option> <option value="8">8</option> <option value="9">9</option> <option value="10">10</option> <option value="11">11</option> <option value="12">12</option> <option value="13">13</option> <option value="14">14</option> <option value="15">15</option> <option value="16">16</option> <option value="17">17</option> <option value="18">18</option> <option value="19">19</option> <option value="20">20</option> <option value="21">21</option> <option value="22">22</option> <option value="23">23</option></select>:<select id="untilMinutes"> <option value="00">00</option> <option value="10">10</option> <option value="20">20</option> <option value="30">30</option> <option value="40">40</option> <option value="50">50</option></select></td><td><input id="maxtime" type="text" size="3" placeholder="0" /></td><td><button id="addButton">+</button></td></tr>';
-        </script>
+        <script src="js/jquery.min.js"></script>
+        <script src="js/options.js"></script>
     </head>
     <body>
         <div id="container">
@@ -43,94 +45,91 @@
                     <th>Max time</th>
                     <th></th>
                 </thead>
-                <tr class="rule">
-                    <td>Rule 1:</td>
-                    <td><input id="domain" type="text" placeholder="domain" /></td>
-                    <td>
-                        <select>
-                         <option value="enable">ENABLE</option>
-                         <option value="disable">DISABLE</option>
-                        </select>
-                    </td>
-                    <td id="since">
-                        <select id="sinceHours">
-                             <option value="0">0</option>
-                             <option value="1">1</option>
-                             <option value="2">2</option>
-                             <option value="3">3</option>
-                             <option value="4">4</option>
-                             <option value="5">5</option>
-                             <option value="6">6</option>
-                             <option value="7">7</option>
-                             <option value="8">8</option>
-                             <option value="9">9</option>
-                             <option value="10">10</option>
-                             <option value="11">11</option>
-                             <option value="12">12</option>
-                             <option value="13">13</option>
-                             <option value="14">14</option>
-                             <option value="15">15</option>
-                             <option value="16">16</option>
-                             <option value="17">17</option>
-                             <option value="18">18</option>
-                             <option value="19">19</option>
-                             <option value="20">20</option>
-                             <option value="21">21</option>
-                             <option value="22">22</option>
-                             <option value="23">23</option>
-                        </select>:
-                        <select id="sinceMinutes">
-                             <option value="00">00</option>
-                             <option value="10">10</option>
-                             <option value="20">20</option>
-                             <option value="30">30</option>
-                             <option value="40">40</option>
-                             <option value="50">50</option>
-                        </select>
-                    </td>
-                    <td id="until">
-                        <select id="untilHours">
-                             <option value="0">0</option>
-                             <option value="1">1</option>
-                             <option value="2">2</option>
-                             <option value="3">3</option>
-                             <option value="4">4</option>
-                             <option value="5">5</option>
-                             <option value="6">6</option>
-                             <option value="7">7</option>
-                             <option value="8">8</option>
-                             <option value="9">9</option>
-                             <option value="10">10</option>
-                             <option value="11">11</option>
-                             <option value="12">12</option>
-                             <option value="13">13</option>
-                             <option value="14">14</option>
-                             <option value="15">15</option>
-                             <option value="16">16</option>
-                             <option value="17">17</option>
-                             <option value="18">18</option>
-                             <option value="19">19</option>
-                             <option value="20">20</option>
-                             <option value="21">21</option>
-                             <option value="22">22</option>
-                             <option value="23">23</option>
-                        </select>:
-                        <select id="untilMinutes">
-                             <option value="00">00</option>
-                             <option value="10">10</option>
-                             <option value="20">20</option>
-                             <option value="30">30</option>
-                             <option value="40">40</option>
-                             <option value="50">50</option>
-                        </select>
-                    </td>
-                    <td>
-                        <input id="maxtime" type="text" size="3" placeholder="0" />
-                    </td>
-                    <td><button id="addButton">+</button></td>
-                </tr>
+                <tbody id="tbd">
+                </tbody>
             </table>
-            <button id="saveRules">SAVE</button>
+            <form id="addRule">
+                Domain:
+                <input id="domain" type="text" placeholder="domain.com" />  
+                Action:
+                <select id="action">
+                 <option value="enable">ENABLE</option>
+                 <option value="disable">DISABLE</option>
+                </select>
+                Since:
+                <select id="sinceHours">
+                     <option value="0">0</option>
+                     <option value="1">1</option>
+                     <option value="2">2</option>
+                     <option value="3">3</option>
+                     <option value="4">4</option>
+                     <option value="5">5</option>
+                     <option value="6">6</option>
+                     <option value="7">7</option>
+                     <option value="8">8</option>
+                     <option value="9">9</option>
+                     <option value="10">10</option>
+                     <option value="11">11</option>
+                     <option value="12">12</option>
+                     <option value="13">13</option>
+                     <option value="14">14</option>
+                     <option value="15">15</option>
+                     <option value="16">16</option>
+                     <option value="17">17</option>
+                     <option value="18">18</option>
+                     <option value="19">19</option>
+                     <option value="20">20</option>
+                     <option value="21">21</option>
+                     <option value="22">22</option>
+                     <option value="23">23</option>
+                </select>:
+                <select id="sinceMinutes">
+                     <option value="00">00</option>
+                     <option value="10">10</option>
+                     <option value="20">20</option>
+                     <option value="30">30</option>
+                     <option value="40">40</option>
+                     <option value="50">50</option>
+                </select>
+                Until:
+                <select id="untilHours">
+                     <option value="0">0</option>
+                     <option value="1">1</option>
+                     <option value="2">2</option>
+                     <option value="3">3</option>
+                     <option value="4">4</option>
+                     <option value="5">5</option>
+                     <option value="6">6</option>
+                     <option value="7">7</option>
+                     <option value="8">8</option>
+                     <option value="9">9</option>
+                     <option value="10">10</option>
+                     <option value="11">11</option>
+                     <option value="12">12</option>
+                     <option value="13">13</option>
+                     <option value="14">14</option>
+                     <option value="15">15</option>
+                     <option value="16">16</option>
+                     <option value="17">17</option>
+                     <option value="18">18</option>
+                     <option value="19">19</option>
+                     <option value="20">20</option>
+                     <option value="21">21</option>
+                     <option value="22">22</option>
+                     <option value="23">23</option>
+                </select>:
+                <select id="untilMinutes">
+                     <option value="00">00</option>
+                     <option value="10">10</option>
+                     <option value="20">20</option>
+                     <option value="30">30</option>
+                     <option value="40">40</option>
+                     <option value="50">50</option>
+                </select>
+                Maxtime:
+                <input id="maxtime" type="text" maxlength="3" value="0" />
+                <button id="addButton">ADD</button>
+            </form>
         </div>
     </body>
 </html>

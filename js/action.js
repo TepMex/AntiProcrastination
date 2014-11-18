@@ -9,12 +9,12 @@ var currentTime = 0;
 /*
 * Rules manipulations(load,save,etc).
 * Rule is JS-Object - {domain:"domain.com",action:DISABLE/ENABLE,since:"0:00",until:"01:00",maxtime:100}.
-*/
+
 
 var testRules = [
     {domain:"livejournal.com",action:DISABLE,since:"1:00",until:"2:00",maxtime:6},
     {domain:"yandex.ru",action:ENABLE,since:"1:00",until:"3:00",maxtime:2}
-];
+];*/
 
 function saveRules()
 {
@@ -110,7 +110,7 @@ function disablePage()
 
 function init()
 {
-    saveRules();
+    //saveRules();
     loadRules();
 }
 
