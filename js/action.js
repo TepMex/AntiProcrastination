@@ -56,13 +56,46 @@ function obeyTheRule(rule)
     var afterInterval = until.hours<hours||(until.hours == hours&&until.minutes<minutes);
     var inInterval = !beforeInterval&&!afterInterval;
     
+    
     switch(rule.action)
     {
         case ENABLE:
-            if(inInterval){ enablePage(rule.maxtime); } else {disablePage();}
+            if(inInterval)
+            { 
+                enablePage(rule.maxtime);                
+                if(rule.domain == "sputnikipogrom.com")
+                {
+                    $(".tp-overlay").detach();
+                }
+            } 
+            else 
+            {
+                if(rule.domain == "twitter.com")
+                {
+                    $("#page-container").detach();
+                }
+                else
+                {
+                    disablePage();
+                }
+            }
             break;
         case DISABLE:
-            if(inInterval){ disablePage(); } else {enablePage(rule.maxtime);}
+            if(inInterval)
+            {
+                if(rule.domain == "twitter.com")
+                {
+                    $("#page-container").detach();
+                }
+                else
+                {
+                    disablePage();
+                }
+            }
+            else 
+            {
+                enablePage(rule.maxtime);
+            }
             break;
     }
     

@@ -71,14 +71,7 @@ function onClickDel(e)
 {
     e.preventDefault();
     id = parseInt(e.target.id.replace("del",""));
-    if(id==0)
-    {
-        rulesArray.splice(0,1);
-    }
-    else
-    {
-        rulesArray.splice(id,id);
-    }
+    rulesArray.splice(id,1);
     saveRules();
 }
 
