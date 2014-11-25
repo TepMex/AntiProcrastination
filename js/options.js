@@ -3,7 +3,9 @@ var rulesArray = [];
 
 function init()
 {
+    $("#addButton").off();
     $("#tbd")[0].innerHTML = "";
+    $("#tbd").splice(1);
     $("#addButton").click(onClickAdd);
     function parseRules(rules)
     {
