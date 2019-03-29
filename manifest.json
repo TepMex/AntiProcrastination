@@ -19,7 +19,8 @@
     }
   ],
   "permissions":[
-    "storage"
+    "storage",
+    "activeTab"
   ],
   "browser_action": {
     "default_title": "AntiProcrastination",
